@@ -1,6 +1,6 @@
 function knight(start, end) {
 
-    var moves = [
+    const moves = [
         [-2,1],
         [-1,2],
         [1,2],
@@ -11,9 +11,9 @@ function knight(start, end) {
         [2,-1]
     ];
     
-    var obj = {}
+    const obj = {}
 
-    var formatPosition = pos => [pos.charCodeAt(0), Number(pos[1])];
+    const formatPosition = pos => [pos.charCodeAt(0), Number(pos[1])];
 
     function recursive(oldPos, counter) {
 
@@ -25,7 +25,7 @@ function knight(start, end) {
 
         counter++;
 
-        var key = oldPos.toString();
+        const key = oldPos.toString();
 
         if ( key in obj ) {
            if (counter >= obj[key]) {
@@ -36,7 +36,7 @@ function knight(start, end) {
        
         moves.forEach((move, index) => {
 
-            var newMove = [
+            const newMove = [
                 oldPos[0] + move[0], 
                 oldPos[1] + move[1]
             ];
