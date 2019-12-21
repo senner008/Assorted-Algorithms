@@ -52,26 +52,4 @@ function knight(start, end) {
 }
 
 
-Object.defineProperty( Set.prototype, "reduce", { value: function reduce(fn,z) { for ( const v of this ) z = fn(z,v); return z; } } );
-function knight2(start,finish) {
-  const fromXY = (x,y) => " abcdefgh"[x] + String(y) ;
-  const toXY = ([x,y]) => [ " abcdefgh".indexOf(x), Number(y) ] ;
-  const onBoard = ([x,y]) => x>=1 && x<=8 && y>=1 && y<=8 ;
-  const moves = (x,y) => [ [x+1,y-2], [x+1,y+2], [x+2,y-1], [x+2,y+1], [x-1,y-2], [x-1,y+2], [x-2,y-1], [x-2,y+1] ].filter(onBoard) ;
-  const allMoves = positions => positions.reduce( (set,pos) => moves(...toXY(pos)).reduce( (set,[x,y]) => set.add(fromXY(x,y)) , set ) , new Set ) ;
-  return function move(positions,m) { return positions.has(finish) ? m : move( allMoves(positions), m+1 ) ; } ( new Set([start]), 0 ) ;
-}
-
-console.time("e")
-
 var result = knight("a1", "h8");
-
-console.timeEnd("e")
-
-console.time("e1")
-
-var result = knight2("a1", "h8");
-
-console.timeEnd("e1")
-
-console.log(result);
