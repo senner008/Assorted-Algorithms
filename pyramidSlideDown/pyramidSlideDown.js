@@ -27,52 +27,6 @@
 
 }
 
-// function longestSlideDown (pyramid) {
-//     let pyramidSum = [];
-
-//     pyramid.forEach((r, i) => {
-//       pyramidSum.push(r.map((e) => {
-//         return (i === i) ? e : 0;
-//       }));
-//     });
-//     // console.log(pyramidSum)
-
-//     for (let i = 1 ; i < pyramidSum.length; i++) {
-//         for (let j = 0; j < pyramidSum[i].length; j++) {
-//             if (j === 0) {
-//                 pyramidSum[i][j] = pyramidSum[i-1][0] + pyramid[i][0];
-//             }
-//             else if (j === pyramidSum[i].length - 1) {
-//                 pyramidSum[i][j] = pyramidSum[i-1][j-1] + pyramid[i][j];
-//             }
-//             else {
-//                 pyramidSum[i][j] = pyramid[i][j] + Math.max(pyramidSum[i-1][j - 1], pyramidSum[i-1][j]);
-//             }
-
-//             // pyramidSum[i][j] = pyramid[i][j] + Math.max(pyramidSum[i+1][j], pyramidSum[i+1][j+1]);
-//         }
-//     }
-
-//     return pyramidSum[pyramidSum.length -1].reduce((a,b) => b > a ? b : a)
-//     // return pyramidSum[0][0];
-
-
-
- 
-
-//   }
-
-
-
-
-//  var result = longestSlideDown(
-//  [
-//  [3],
-//  [7, 4],
-//  [2, 4, 6],
-//  [8, 5, 9, 3]
-//  ])
-
   var result = longestSlideDown(
   [
   [75],
