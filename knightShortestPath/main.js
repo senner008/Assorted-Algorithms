@@ -17,6 +17,7 @@ function knight(start, end) {
 
     function recursive(oldPos, counter) {
 
+     
         if (oldPos[0] < 97 || oldPos[1] < 1 || oldPos[0] > 104 || oldPos[1] > 8 ) {
             return false;
         }
@@ -29,12 +30,9 @@ function knight(start, end) {
         if ( key in obj ) {
            if (counter >= obj[key]) {
                return false;
-           } else {
-            obj[key] = counter;
            }
-        } else {
-            obj[key] = counter;
-        }
+        } 
+        obj[key] = counter;
        
         moves.forEach((move, index) => {
 
@@ -53,3 +51,4 @@ function knight(start, end) {
 
 
 var result = knight("a1", "h8");
+console.log(result)
