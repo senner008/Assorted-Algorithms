@@ -9,7 +9,7 @@
 
 function packBagpack(scores, weights, capacity) {
 
-    function getPossibilitiesRecursively (itemCounter, knapsack, weight, score) {
+    function getPossibilitiesRecursively (itemCounter, weight, score) {
     
         if (weight > capacity) return false;
     
@@ -17,18 +17,17 @@ function packBagpack(scores, weights, capacity) {
             bestScore = score > bestScore ? score : bestScore;
             return false;
         }
-   
-        knapsack.push(scores[itemCounter]);
+
         var newweight = weight + weights[itemCounter];
         var newscore = score + scores[itemCounter];
     
-        return getPossibilitiesRecursively(itemCounter +1, knapsack, newweight, newscore)
-            ||  getPossibilitiesRecursively(itemCounter +1, knapsack, weight, score);
+        return getPossibilitiesRecursively(itemCounter +1, newweight, newscore)
+            ||  getPossibilitiesRecursively(itemCounter +1, weight, score);
     }
     
     var bestScore = 0;
 
-    getPossibilitiesRecursively(0, [], 0, 0);
+    getPossibilitiesRecursively(0, 0, 0);
     
     return bestScore;
       
