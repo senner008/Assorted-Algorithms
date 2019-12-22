@@ -1,16 +1,16 @@
-function twosum(arr = [1,2,3,4,5], num = 6) {
+function twosum(arr = [1,2,2,3,3,4,5,5], num = 6) {
     
-    var resultArr = [];
-    arr.forEach((n,index) => {
-        arr.forEach((n2, index2) => {
-            if (index !== index2 && n + n2 === num) {
-                resultArr.push([n, n2].sort().toString());
-            }
-        });
-    })
-    return [...new Set(resultArr)]
-        .map(item => item.split(","))
-        .map(item => item.map(s => Number(s)));
+  var hash = {};  
+  var solutions = [];
+  arr.forEach(n => {
+    if (hash[num - n] > 0) {
+        solutions.push([n, num - n])
+        hash[num-n] = hash[num - n] -1;
+    } else {
+        hash[n] = !(n in hash) ? 1 : hash[n] + 1;
+    }
+  })
+  return solutions;
 }
 
 console.log(twosum())
