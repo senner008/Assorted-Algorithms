@@ -18,13 +18,13 @@ function packBagpack(scores, weights, capacity) {
             return false;
         }
     
-        var knapsackClone = knapsack.slice(0);
+   
         knapsack.push(scores[itemCounter]);
         var newweight = weight + weights[itemCounter];
         var newscore = score + scores[itemCounter];
     
         return getPossibilitiesRecursively(itemCounter +1, knapsack, newweight, newscore)
-            ||  getPossibilitiesRecursively(itemCounter +1, knapsackClone, weight, score);
+            ||  getPossibilitiesRecursively(itemCounter +1, knapsack, weight, score);
     }
     
     var bestScore = 0;
