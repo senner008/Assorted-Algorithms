@@ -35,11 +35,16 @@ function packBagpack(scores, weights, capacity) {
 
 var test1 = packBagpack([15, 10, 9, 5], [1, 5, 3, 4], 8); 
 
-var test2 = packBagpack([20, 5, 10, 40, 15, 25], [1, 2, 3, 8, 7, 4], 10); 
-
 console.log(test1) // 29
 
-console.log(test2) // 60
+// Optimized solution from code wars using Dynamic programming:
 
-
-
+function packBagpack2(scores, weights, capacity) {
+    let load = Array.from({ length: capacity + 1 }, () => 0);
+    for (let i = 0; i < weights.length; i++) {
+      load = load.map(
+        (l, w) => Math.max(l, weights[i] <= w && load[w - weights[i]] + scores[i])
+      );
+    }
+    return load.pop();
+  }
