@@ -37,7 +37,7 @@ var test1 = packBagpack([15, 10, 9, 5], [1, 5, 3, 4], 8);
 
 console.log(test1) // 29
 
-// Optimized solution from code wars using Dynamic programming:
+// Optimal solution if total weight is small from code wars using Dynamic programming:
 
 function packBagpack2(scores, weights, capacity) {
     let load = Array.from({ length: capacity + 1 }, () => 0);
