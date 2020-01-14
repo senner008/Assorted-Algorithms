@@ -34,10 +34,8 @@ function factorialOfEqualMultiplied(arr) {
     return returnSum;
 }
 
-
 console.log(listPosition("QUESTION")) // 24572
 console.log(listPosition("BOOKKEEPER")) // 10743
-
 
 
 
