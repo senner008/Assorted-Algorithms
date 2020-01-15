@@ -34,12 +34,13 @@ const createWordArrays = (str, lineWidth) => {
             wordsLength = w.length;
         }       
     }
+    var lastword = getLastWordInString(str);
 
-    if (wordsLength + getLastWordInString(str).length + 1 > lineWidth) {
+    if (wordsLength + lastword.length + 1 > lineWidth) {
         arr.push(subArr);
-        arr.push([getLastWordInString(str)]);
+        arr.push([lastword]);
     } else {
-        subArr.push(getLastWordInString(str))
+        subArr.push(lastword)
         arr.push(subArr);
     }
     
