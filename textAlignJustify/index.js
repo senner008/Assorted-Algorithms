@@ -1,6 +1,6 @@
 
 
-var text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis dolor mauris, at elementum ligula tempor eget. In quis rhoncus nunc, at aliquet orci. Fusce at dolor sit amet felis suscipit tristique. Nam a imperdiet tellus. Nulla eu vestibulum urna. Vivamus tincidunt suscipit enim, nec ultrices nisi volutpat ac."
+var text = "elementum justo nulla et dolor."
 
 
 var justify = function(str, lineWidth) {
@@ -23,7 +23,6 @@ const createWordArrays = (str, lineWidth) => {
             if (word.length > lineWidth) return false;
             wordsLength += word.length;
             word = "";
-            wordLength = 0;
         } else  {
             word += c;
         }
@@ -36,15 +35,21 @@ const createWordArrays = (str, lineWidth) => {
         }       
     }
 
-    subArr.push(getLastWordInString(str))
-    arr.push(subArr);
+    if (wordsLength + getLastWordInString(str).length + 1 > lineWidth) {
+        arr.push(subArr);
+        arr.push([getLastWordInString(str)]);
+    } else {
+        subArr.push(getLastWordInString(str))
+        arr.push(subArr);
+    }
+    
     return arr;
 }
 
 const getLastWordInString = (str) => {
     var cIndex = 1;
     var word = ""
-    while (str[cIndex +1 ] !== " ") {
+    while (str[str.length - cIndex] != " " && str.length - cIndex != 0) {
         word += str[str.length - cIndex];
         cIndex++;
     }
@@ -91,5 +96,5 @@ function calcSpaces(nSpaces, nWords) {
     return arr;
 }
 
-var result = justify(text, 30);
+var result = justify(text, 25);
 console.log(result)
