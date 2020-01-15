@@ -32,6 +32,7 @@ var justify = function(str, len) {
             subArr = [w];
             wordsLength = w.length;
         }
+       
     }
     arr.push(subArr);
 
@@ -53,7 +54,7 @@ var justify = function(str, len) {
 
 function calcSpaces(spaces, words) {
 
-    if (words.length < 1) return;
+    if (words === 0) return [0];
 
     var upper = Math.ceil(spaces/words);
     var lower = Math.floor(spaces/words);
